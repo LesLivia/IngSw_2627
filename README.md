@@ -57,3 +57,31 @@ Di seguito, la descrizione, package per package, degli argomenti trattati:
   - Collezioni e iterazione su elenchi di oggetti
 
 </details>
+
+<details>
+<summary><strong>3) Package: ereditarieta</strong></summary>
+
+- Obiettivo: introdurre ereditarietà e polimorfismo applicati a PoliFlix; mostrare override dei metodi, upcasting e gestione uniforme di tipi diversi tramite una superclasse comune.
+
+<img src="resources/diagrams/PoliFlix_3.png" alt="Diagramma PoliFlix 3" width="400">
+
+3.1) Sottopacchetto: ereditarieta.poliflix
+- File principali:
+  - [new.poliflix.PoliFlix](src/main/oop_avanzato/poliflix/PoliFlix.java) (main)
+    - Entry point: menù non loggato/loggato, integrazione con ManagerUtenti e ManagerContenuti
+  - Contenuti (gerarchia):
+    - [contenuti.new.poliflix.ContenutoMultimediale](src/main/oop_avanzato/poliflix/contenuti/ContenutoMultimediale.java) (superclasse)
+    - [contenuti.new.poliflix.Film](src/main/oop_avanzato/poliflix/contenuti/Film.java), [contenuti.new.poliflix.Documentario](src/main/oop_avanzato/poliflix/contenuti/Documentario.java), [contenuti.new.poliflix.Serie](src/main/oop_avanzato/poliflix/contenuti/Serie.java), [contenuti.new.poliflix.Episodio](src/main/oop_avanzato/poliflix/contenuti/Episodio.java)
+    - [contenuti.new.poliflix.ManagerContenuti](src/main/oop_avanzato/poliflix/contenuti/ManagerContenuti.java)
+    - [contenuti.new.poliflix.ReaderContenuti](src/main/oop_avanzato/poliflix/contenuti/ReaderContenuti.java)
+  - Utenti:
+    - [utenti.new.poliflix.ManagerUtenti](src/main/oop_avanzato/poliflix/utenti/ManagerUtenti.java), [utenti.new.poliflix.Utente](src/main/oop_avanzato/poliflix/utenti/Utente.java)
+- Cosa mostra:
+  - Una gerarchia di tipi con superclasse (ContenutoMultimediale) e sottoclassi (Film, Documentario, Serie, Episodio)
+  - Polimorfismo su ContenutoMultimediale.riproduci() e override dove necessario
+  - Lettura da CSV unica ([ReaderContenuti.leggiDaCsv](src/main/oop_avanzato/poliflix/contenuti/ReaderContenuti.java)) che istanzia il sottotipo in base alla prima colonna (Film/Documentario/Serie)
+- Risorse d’esempio:
+  - [resources/contenuti.csv](resources/files/contenuti.csv)
+  - Diagrammi: [resources/diagrams/PoliFlix_2.png](resources/diagrams/PoliFlix_2.png), [resources/diagrams/PoliFlix_3.png](resources/diagrams/PoliFlix_3.png)
+
+</details>
