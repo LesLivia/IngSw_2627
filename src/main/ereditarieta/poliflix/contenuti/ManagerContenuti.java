@@ -37,6 +37,10 @@ public class ManagerContenuti {
         }
 
         contenutoScelto.riproduci();
+        if (contenutoScelto instanceof Film)
+            mostraAltro((Film) contenutoScelto);
+        else
+            mostraAltro(contenutoScelto);
     }
 
     public void mostraAltro(ContenutoMultimediale cm) {

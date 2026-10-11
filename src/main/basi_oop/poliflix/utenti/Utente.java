@@ -32,7 +32,7 @@ public class Utente {
     }
 
     public boolean nonNullo() {
-        return this.username != null && this.password != null;
+        return username != null && password != null;
     }
 
 }
