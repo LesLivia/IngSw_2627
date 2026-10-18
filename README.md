@@ -67,7 +67,7 @@ Di seguito, la descrizione, package per package, degli argomenti trattati:
 
 3.1) Sottopacchetto: ereditarieta.poliflix
 - File principali:
-  - [poliflix.PoliFlix](src/main/oop_avanzato/poliflix/PoliFlix.java) (main)
+  - [design_patterns.poliflix.PoliFlix](src/main/oop_avanzato/poliflix/PoliFlix.java) (main)
     - Entry point: menù non loggato/loggato, integrazione con ManagerUtenti e ManagerContenuti
   - Contenuti (gerarchia):
     - [contenuti.poliflix.ContenutoMultimediale](src/main/oop_avanzato/poliflix/contenuti/ContenutoMultimediale.java) (superclasse)
@@ -96,7 +96,7 @@ Di seguito, la descrizione, package per package, degli argomenti trattati:
 
 4.1) Sottopacchetto: oop_avanzato.poliflix
 - File principali:
-  - [main.oop_avanzato.poliflix.PoliFlix](src/main/oop_avanzato/poliflix/PoliFlix.java) (main)
+  - [main.oop_avanzato.design_patterns.poliflix.PoliFlix](src/main/oop_avanzato/poliflix/PoliFlix.java) (main)
     - Entry point: menù non loggato/loggato, integrazione con ManagerUtenti e ManagerContenuti
   - Contenuti (gerarchia):
     - [contenuti.main.oop_avanzato.poliflix.ContenutoMultimediale](src/main/oop_avanzato/poliflix/contenuti/ContenutoMultimediale.java) (superclasse astratta)
@@ -118,5 +118,33 @@ Di seguito, la descrizione, package per package, degli argomenti trattati:
   - [resources/files/contenuti.csv](resources/files/contenuti.csv)
   - [resources/files/users.txt](resources/files/users.txt)
   - Diagrammi: [resources/diagrams/PoliFlix_4.png](resources/diagrams/PoliFlix_4.png)
+
+</details>
+
+<details>
+<summary><strong>5) Package: design_patterns</strong></summary>
+
+- Obiettivo: applicare i principali Design Pattern all’app PoliFlix (Singleton, Factory, Decorator, Observer, Strategy).
+
+<img src="resources/diagrams/PoliFlix_5.png" alt="Diagramma PoliFlix 5" width="400">
+
+5.1) Sottopacchetto: design_patterns.poliflix
+- Contenuti e Pattern:
+  - Singleton: [ManagerContenuti](src/main/design_patterns/poliflix/contenuti/ManagerContenuti.java), [ManagerUtenti](src/main/design_patterns/poliflix/utenti/ManagerUtenti.java)
+  - Factory (creazione oggetti contenuto): [ContenutiFactory](src/main/design_patterns/poliflix/contenuti/factory/ContenutiFactory.java)
+  - Decorator (funzionalità aggiuntive in riproduzione): [Riproducibile](src/main/design_patterns/poliflix/contenuti/decorator/Riproducibile.java), [ContenutoDecorator](src/main/design_patterns/poliflix/contenuti/decorator/ContenutoDecorator.java), [ConSottotitoli](src/main/design_patterns/poliflix/contenuti/decorator/ConSottotitoli.java), [ConDoppiaggio](src/main/design_patterns/poliflix/contenuti/decorator/ConDoppiaggio.java)
+  - Observer (notifiche): [Osservabile](src/main/design_patterns/poliflix/contenuti/observer/Osservabile.java), [Osservatore](src/main/design_patterns/poliflix/utenti/observer/Osservatore.java)
+  - Strategy (raccomandazioni): [StrategiaRaccomandazione](src/main/design_patterns/poliflix/contenuti/strategy/StrategiaRaccomandazione.java), [RaccomandazionePerTitolo](src/main/design_patterns/poliflix/contenuti/strategy/RaccomandazionePerTitolo.java), [RaccomandazionePerDurata](src/main/design_patterns/poliflix/contenuti/strategy/RaccomandazionePerDurata.java), [Raccomandatore](src/main/design_patterns/poliflix/contenuti/strategy/Raccomandatore.java)
+
+- Cosa mostra:
+  - Singleton per forzare l'esistenza di un'istanza unica per i due manager
+  - Factory per centralizzare la creazione dei contenuti a partire da parametri o dati
+  - Decorator per estendere il comportamento di riproduzione (es. sottotitoli, doppiaggio) senza modificare le classi esistenti
+  - Observer per notificare gli utenti/observer su eventi (es. nuovi contenuti o stati di riproduzione)
+  - Strategy per cambiare a runtime la logica di raccomandazione dei contenuti
+
+- Risorse d’esempio:
+  - [resources/files/contenuti.csv](resources/files/contenuti.csv)
+  - Diagrammi: [resources/diagrams/PoliFlix_5.png](resources/diagrams/PoliFlix_5.png)
 
 </details>
