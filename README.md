@@ -148,3 +148,40 @@ Di seguito, la descrizione, package per package, degli argomenti trattati:
   - Diagrammi: [resources/diagrams/PoliFlix_5.png](resources/diagrams/PoliFlix_5.png)
 
 </details>
+
+<details>
+<summary><strong>6) Package: concorrente</strong></summary>
+
+- Obiettivo: Introdurre nozioni relative alla programmazione concorrente, nello specifico creazione e gestione di thread e gestione thread-safe delle risorse condivise con esempi standalone e all'interno dell'app PoliFlix.
+
+  6.1) Sottopacchetto: concorrente.esempi_base
+  - File principali:
+    - [esempi_base.main.concorrente.Main](src/main/concorrente/esempi_base/Main.java) (main)
+    - [esempi_base.main.concorrente.EsempioThread](src/main/concorrente/esempi_base/EsempioThread.java)
+    - [esempi_base.main.concorrente.EsempioRunnable](src/main/concorrente/esempi_base/EsempioRunnable.java)
+    - [esempi_base.main.concorrente.EsempioMonitor](src/main/concorrente/esempi_base/EsempioMonitor.java)
+    - [esempi_base.main.concorrente.EsempioScrittore](src/main/concorrente/esempi_base/EsempioScrittore.java)
+    - [esempi_base.main.concorrente.EsempioLettore](src/main/concorrente/esempi_base/EsempioLettore.java)
+  - Cosa mostra:
+    - Differenze tra estendere Thread e implementare Runnable
+    - Avvio e sincronizzazione: start(), join(), sleep()
+    - Sincronizzazione con monitor: metodi synchronized, wait(), notifyAll()
+    - Esempio produttore/consumatore con lettore/scrittore e coda singola
+    - Gestione InterruptedException di base
+
+  6.2) Sottopacchetto: concorrente.poliflix
+- Obiettivo: introdurre la programmazione concorrente in PoliFlix
+
+<img src="resources/diagrams/PoliFlix_6.png" alt="Diagramma PoliFlix concorrente" width="400">
+
+- File principali:
+  - Monitor riproduzione/input: [monitor.contenuti.poliflix.main.concorrente.MonitorRiproduzione](src/main/concorrente/poliflix/contenuti/monitor/MonitorRiproduzione.java), [monitor.contenuti.poliflix.main.concorrente.InputRiproduzione](src/main/concorrente/poliflix/contenuti/monitor/InputRiproduzione.java)
+
+- Cosa mostra:
+  - Creazione di thread per la riproduzione dei contenuti e thread separato per l’input utente (pausa/riprendi/uscita)
+  - Sincronizzazione tramite monitor con metodi synchronized e wait/notifyAll per coordinare pausa/ripresa della riproduzione
+
+- Risorse d’esempio:
+  - Diagramma: [resources/diagrams/PoliFlix_6.png](resources/diagrams/PoliFlix_6.png)
+
+</details>
