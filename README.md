@@ -177,3 +177,40 @@ Di seguito, la descrizione, package per package, degli argomenti trattati:
   - Diagramma: [resources/diagrams/PoliFlix_6.png](resources/diagrams/PoliFlix_6.png)
 
 </details>
+
+<details>
+<summary><strong>7) Package: funzionale</strong></summary>
+
+- Obiettivo: introdurre i costrutti della programmazione funzionale (lambda, Stream, Optional e method reference) con esempi standalone e l’app PoliFlix.
+
+  7.1) Sottopacchetto: funzionale.esempio_base
+  - File principali:
+    - [funzionale.esempio_base.EsempiStream](src/main/funzionale/esempio_base/EsempiStream.java)
+    - [funzionale.esempio_base.EsempiInterfacceFunzionali](src/main/funzionale/esempio_base/EsempiInterfacceFunzionali.java)
+  - Cosa mostra:
+    - Interfacce funzionali standard: `Runnable`, `Comparator`, `Predicate`, `Function`, `Supplier`, `Consumer` con lambda e method reference
+    - Method reference
+    - Interfaccia funzionale custom `@FunctionalInterface` [`OperazioneBinaria`](src/main/funzionale/esempio_base/OperazioneBinaria.java) e suo utilizzo con lambda
+    - Pipeline Stream
+    - Operazioni terminali
+    - Confronto con approccio imperativo
+
+  7.2) Sottopacchetto: funzionale.poliflix
+  - Entry point: [funzionale.poliflix.PoliFlix](src/main/funzionale/poliflix/PoliFlix.java)
+  - <img src="resources/diagrams/PoliFlix_7.png" alt="Diagramma PoliFlix funzionale" width="400">
+
+  - Dove sono usate funzionalità della programmazione funzionale (solo punti rilevanti):
+    - Ricerca e selezione contenuto in `ManagerContenuti.riproduci(String titolo)` ([file](src/main/funzionale/poliflix/contenuti/ManagerContenuti.java)):
+      - `stream()` → `filter` → `map` → `findFirst()` per ottenere un `Optional<Riproducibile>`.
+      - Uso di `Optional` per gestire l’assenza del contenuto senza `null` e rami annidati.
+    - Raccomandazioni in [`RaccomandazionePerTitolo`](src/main/funzionale/poliflix/contenuti/strategy/RaccomandazionePerTitolo.java) e [`RaccomandazionePerDurata`](src/main/funzionale/poliflix/contenuti/strategy/RaccomandazionePerDurata.java):
+      - Pipeline con `stream()` + `filter` + `limit` + `toList()` per produrre i suggerimenti.
+    - Avvio riproduzione con method reference in `ManagerContenuti.riproduci(String titolo)` ([file](src/main/funzionale/poliflix/contenuti/ManagerContenuti.java)):
+      - Creazione del `Runnable` via `contenutoDaRiprodurre::riproduci` (referenza a metodo) prima dell’avvio del thread.
+    - Verifica utente esistente in `ManagerUtenti.utenteEsiste(Utente)` ([file](src/main/funzionale/poliflix/utenti/ManagerUtenti.java)):
+      - `stream()` → `filter` → `findFirst()` → `isPresent()` per controllare le credenziali senza cicli e flag mutabili.
+
+- Risorse d’esempio:
+  - Diagrammi: [resources/diagrams/PoliFlix_7.png](resources/diagrams/PoliFlix_7.png)
+
+</details>
