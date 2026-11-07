@@ -1,7 +1,7 @@
-package concorrente.esempi_base;
+package concorrente.pattern_concorrenti.avvio_thread;
 
 public class Main {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         EsempioThread t1 = new EsempioThread("Thread 1");
         EsempioThread t2 = new EsempioThread("Thread 2");
 
@@ -27,12 +27,5 @@ public class Main {
         } catch (InterruptedException e) {
             System.out.println("Errore nella sincronizzazione dei thread.");
         }
-
-        EsempioMonitor esempio = new EsempioMonitor();
-        EsempioScrittore scrittore = new EsempioScrittore(esempio);
-        EsempioLettore lettore = new EsempioLettore(esempio);
-
-        scrittore.start();
-        lettore.start();
     }
 }

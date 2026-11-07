@@ -1,4 +1,4 @@
-package concorrente.esempi_base;
+package concorrente.pattern_concorrenti.avvio_thread;
 
 import java.util.concurrent.TimeUnit;
 

@@ -154,20 +154,12 @@ Di seguito, la descrizione, package per package, degli argomenti trattati:
 
 - Obiettivo: Introdurre nozioni relative alla programmazione concorrente, nello specifico creazione e gestione di thread e gestione thread-safe delle risorse condivise con esempi standalone e all'interno dell'app PoliFlix.
 
-  6.1) Sottopacchetto: concorrente.esempi_base
-  - File principali:
-    - [esempi_base.main.concorrente.Main](src/main/concorrente/esempi_base/Main.java) (main)
-    - [esempi_base.main.concorrente.EsempioThread](src/main/concorrente/esempi_base/EsempioThread.java)
-    - [esempi_base.main.concorrente.EsempioRunnable](src/main/concorrente/esempi_base/EsempioRunnable.java)
-    - [esempi_base.main.concorrente.EsempioMonitor](src/main/concorrente/esempi_base/EsempioMonitor.java)
-    - [esempi_base.main.concorrente.EsempioScrittore](src/main/concorrente/esempi_base/EsempioScrittore.java)
-    - [esempi_base.main.concorrente.EsempioLettore](src/main/concorrente/esempi_base/EsempioLettore.java)
-  - Cosa mostra:
-    - Differenze tra estendere Thread e implementare Runnable
-    - Avvio e sincronizzazione: start(), join(), sleep()
-    - Sincronizzazione con monitor: metodi synchronized, wait(), notifyAll()
-    - Esempio produttore/consumatore con lettore/scrittore e coda singola
-    - Gestione InterruptedException di base
+  6.1) Sottopacchetto: concorrente.pattern_concorrenti
+  - [avvio_thread/Main](src/main/concorrente/pattern_concorrenti/avvio_thread/Main.java): differenze tra estendere `Thread` e implementare `Runnable`; avvio e `join()`.
+  - [data_race/MainVisualizzazioniSerie](src/main/concorrente/pattern_concorrenti/data_race/MainVisualizzazioniSerie.java): aggiornamenti concorrenti al contatore di visualizzazioni di una serie, protetti con `synchronized`.
+  - [publish_subscribe/MainBufferCondiviso](src/main/concorrente/pattern_concorrenti/publish_subscribe/MainBufferCondiviso.java): buffer broadcast in cui ogni messaggio viene consegnato una volta a ogni lettore.
+  - [producer_consumer/MainProducerConsumerStampe](src/main/concorrente/pattern_concorrenti/producer_consumer/MainProducerConsumerStampe.java): coda di stampe limitata; i produttori attendono quando è piena e le stampanti quando è vuota.
+  - [deadlock/MainDeadlockTrasferimenti](src/main/concorrente/pattern_concorrenti/deadlock/MainDeadlockTrasferimenti.java): confronto tra trasferimenti con lock in ordine opposto (`ContoBancario`) e la versione deadlock-free con ordine globale dei lock (`ContoBancarioSicuro`).
 
   6.2) Sottopacchetto: concorrente.poliflix
 - Obiettivo: introdurre la programmazione concorrente in PoliFlix
